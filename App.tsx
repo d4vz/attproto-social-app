@@ -1,20 +1,29 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { TamaguiProvider } from '@tamagui/core';
+import config from './tamagui.config';
 
-export default function App() {
+import {
+  DarkTheme,
+  DefaultTheme,
+  ThemeProvider
+} from '@react-navigation/native';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { useColorScheme } from 'react-native';
+import './gesture-handler';
+import RootNavigator from './src/navigation/root-navigation';
+
+function App() {
+  const queryClient = new QueryClient();
+  const colorScheme = useColorScheme();
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <TamaguiProvider config={config} defaultTheme={colorScheme!}>
+      <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
+        <QueryClientProvider client={queryClient}>
+          <RootNavigator />
+        </QueryClientProvider>
+      </ThemeProvider>
+    </TamaguiProvider>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App;

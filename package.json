@@ -6,17 +6,39 @@
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
-    "web": "expo start --web"
+    "web": "expo start --web",
+    "generate-themes": "tamagui generate-themes ./theme-builder.ts ./themes.ts"
   },
   "dependencies": {
+    "@expo/metro-runtime": "~3.2.3",
+    "@react-native-async-storage/async-storage": "1.23.1",
+    "@react-navigation/native": "^6.1.18",
+    "@react-navigation/native-stack": "^6.11.0",
+    "@tamagui/babel-plugin": "^1.110.1",
+    "@tamagui/cli": "^1.110.1",
+    "@tamagui/config": "^1.110.1",
+    "@tamagui/core": "^1.110.1",
+    "@tamagui/theme": "^1.110.1",
+    "@tanstack/react-query": "^5.53.2",
+    "axios": "^1.7.7",
     "expo": "~51.0.28",
+    "expo-font": "~12.0.9",
+    "expo-linear-gradient": "~13.0.2",
     "expo-status-bar": "~1.12.1",
     "react": "18.2.0",
-    "react-native": "0.74.5"
+    "react-dom": "18.2.0",
+    "react-native": "0.74.5",
+    "react-native-gesture-handler": "~2.16.1",
+    "react-native-reanimated": "~3.10.1",
+    "react-native-web": "~0.19.10",
+    "react-navigation": "^5.0.0",
+    "tamagui": "^1.110.1"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
     "@types/react": "~18.2.45",
+    "@types/react-native": "^0.72.8",
+    "@types/react-navigation": "^3.0.8",
     "typescript": "^5.1.3"
   },
   "private": true
